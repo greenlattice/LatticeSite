@@ -1,5 +1,6 @@
 body {
- background: #333;   
+ background-image: url(/static/TileBlackSmall.png);
+ background-repeat: repeat;
 }
 
 h1 {
