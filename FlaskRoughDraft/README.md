@@ -1,1 +1,3 @@
-pip install flask and then python run Site.py
+## Setup
+    $ pip install flask
+    $ python Site.py
