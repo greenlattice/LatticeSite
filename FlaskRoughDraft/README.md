@@ -1,2 +1,3 @@
-     pip install flask
-     python Site.py
+## Setup
+    pip install flask
+    python Site.py
