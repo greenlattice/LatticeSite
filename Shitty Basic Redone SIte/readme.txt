@@ -1,0 +1,3 @@
+Redoing this entire thing off my tablet because some bullshit is going down with the power company in my town. Some powerlines got knocked down and some underground cables were fucked in the face. So we got no power still, atleast generator is up and happy for basic stuff like the fridge.
+
+I really need some fucking power man. It's one thing if it's gone for a night. But holy fucking shit I'm pissed.
