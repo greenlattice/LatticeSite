@@ -1,0 +1,79 @@
+body {
+	background-image: url(../img/lattice.png);
+	background-size: 60px;
+	background-origin: center center;
+	color: #eee;
+}
+
+.container {
+	margin-top: 6.0rem;
+	background-color: #222;
+	padding: 0.5rem 1.5rem;
+}
+
+#nav {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	background-color: #222;
+	float: left;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	border-bottom: 1px solid #eee;
+}
+
+#nav > li {
+	display: inline;
+	float: left;
+	padding: 0.75rem 1.5rem;
+	background-color: #222;
+	border-right: 1px solid #eee;
+}
+
+#nav > li.right {
+	float: right;
+	border-right: none;
+	border-left: 1px solid #eee;
+}
+
+#nav li > a {
+	color: #eee;
+	text-decoration: none;
+}
+
+#nav > li:hover { background-color: #02be01; }
+
+#nav > li.discord:hover { background-color: #7289da; }
+
+#nav > li.reddit:hover { background-color: orangered; }
+
+#nav li:hover > a { color: white; }
+
+#nav .dd:hover ul {
+	visibility: visible;
+}
+
+#nav .sub {
+	list-style: none;
+	position: absolute;
+	top: 3.9rem;
+	margin-left: -1.6rem;
+	padding: 0;
+	visibility: hidden;
+	background-color: #222;
+	border: 1px solid #eee;
+}
+
+#nav .sub > li {
+	padding: 0.25rem 1.0rem
+}
+
+#nav .sub > li:hover {
+	background-color: #94e044
+}
+
+#nav #navlogo {
+	height: 1.75rem;
+}
