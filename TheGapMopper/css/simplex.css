@@ -1,0 +1,148 @@
+/*--------------------------------------*/
+/*   Base Values                        */
+/*--------------------------------------*/
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6em;
+  font-family: sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+}
+
+/*--------------------------------------*/
+/*   Headers                            */
+/*--------------------------------------*/
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 0.8px;
+  margin-top: 0;
+  margin-left: 0.5em;
+  margin-bottom: 1.5rem;
+  line-height: initial;
+}
+
+h1 > span, h2 > span,
+h3 > span, h4 > span,
+h5 > span, h6 > span {
+  font-size: 55%;
+  font-style: italic;
+  display:  block;
+  color: #888;
+}
+
+h1 { font-size: 4.0rem; }
+h2 { font-size: 3.4rem; }
+h3 { font-size: 2.8rem; }
+h4 { font-size: 2.2rem; }
+h5 { font-size: 1.6rem; }
+h6 { font-size: 1.0rem; }
+
+/*--------------------------------------*/
+/*   Code                               */
+/*--------------------------------------*/
+
+code {
+  font-size: 1.4rem;
+  padding: 0 0.3rem;
+  background-color: #eee;
+  border: 1px solid #aaa;
+  border-radius: 0.3rem;
+}
+
+pre > code {
+  padding: 1.0rem 1.5rem;
+  display: block;
+  white-space: no-wrap;
+  overflow: auto;
+}
+
+/*--------------------------------------*/
+/*   Images                             */
+/*--------------------------------------*/
+
+img.left { float: left; }
+
+img.right { float: right; }
+
+/*--------------------------------------*/
+/*   Grid Sizing                        */
+/*--------------------------------------*/
+
+.container {
+  width: 95%;
+  margin: 0 auto;
+  padding: 1.0rem 0;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 0;
+}
+
+.column {
+  padding: 1.0rem 1%;
+  margin: 0.3rem 1%;
+  width: 100%;
+}
+
+/*--------------------------------------*/
+/*   Tablet Exceptions                  */
+/*--------------------------------------*/
+
+@media screen and (min-width: 750px) {
+  /* Grid Sizing */
+  .container { width: 730px; }
+
+  .full { width: 96%; }
+  
+  .one-half { width: 46%; }
+
+  .one-third { width: 29.33%;}
+  .two-thirds { width: 62.67%;}
+
+  .one-fourth { width: 21%; }
+  .three-fourths { width: 71%; }
+
+  .one-fifth { width: 16%; }
+  .two-fifths { width: 36%; }
+  .three-fifths { width: 56%; }
+  .four-fifths { width: 76%; }
+
+  .one-sixth { width: 12.66% }
+  .five-sixths { width: 79.33% }
+
+  .one-eighth { width: 8.5%; }
+  .three-eighths { width: 33.5%; }
+  .five-eighths { width: 58.5%; }
+  .seven-eighths { width: 83.5%; }
+  
+  .one-twelfth { width: 4.33%; }
+  .five-twelfths { width: 37.67%; }
+  .seven-twelfths { width: 54.33%; }
+  .eleven-twelfths { width: 87.67%; }
+
+  /* Headings */
+
+  h1 { font-size: 4.6rem; }
+  h2 { font-size: 4.0rem; }
+  h3 { font-size: 3.4rem; }
+  h4 { font-size: 2.8rem; }
+  h5 { font-size: 2.2rem; }
+  h6 { font-size: 1.6rem; }
+}
+
+/*--------------------------------------*/
+/*   Desktop Excpetions                 */
+/*--------------------------------------*/
+
+@media screen and (min-width: 1200px) {
+  /* Grid Sizing */
+  .container { width: 1180px; }
+}
