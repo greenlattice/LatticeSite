@@ -27,9 +27,9 @@ def GenStoryFootLinks(chapterdict):
         beforenum = itemnum - 1
         afternum = itemnum + 1
         if str(beforenum) in chapterdict:
-            NewString += '<p id="left"><a href=/story/' + str(beforenum) + '>' + '< Previous </a></p>'
+            NewString += '<p id="left"><a href=/story/' + str(beforenum) + '>' + '<img src="/static/PrevButton.png"> </a></p>'
         if str(afternum) in chapterdict:
-            NewString += '<p id="right"><a href=/story/' + str(afternum) + '>' + 'Next > </a></p>'
+            NewString += '<p id="right"><a href=/story/' + str(afternum) + '>' + '<img src="/static/NextButton.png"> </a></p>'
         ReturnDict[item] = Markup(NewString)
     return ReturnDict
 
