@@ -14,9 +14,16 @@ def GenChapterDict():
     return ReturnDict
 
 def GenChapterIndex(chapterdict):
-    ReturnString = ''
+    ReturnString = '<a href="/story/all">All Chapters</a></br>\n'
     for x in range(1,len(chapterdict)+1):
         ReturnString += '<a href=story/' + str(x) + '>' + chapterdict[str(x)]['title'] + '</a></br>\n'
+    return Markup(ReturnString)
+
+def GenAllStory(chapterdict):
+    ReturnString = ''
+    for x in range(1,len(chapterdict)+1):
+        ReturnString += '<h2>' + chapterdict[str(x)]['title'] + '</h2></br>\n'
+        ReturnString += chapterdict[str(x)]['content'] + '</br></br>\n'
     return Markup(ReturnString)
 
 def GenStoryFootLinks(chapterdict):
@@ -36,6 +43,7 @@ def GenStoryFootLinks(chapterdict):
 ChapterDict = GenChapterDict()
 ChapterIndex = GenChapterIndex(ChapterDict)
 StoryFootLinks = GenStoryFootLinks(ChapterDict)
+AllStory = GenAllStory(ChapterDict)
 links = '<p>LINKS: <a href=/>INDEX</a> <a href=/story>STORY</a> <a href=/wall>WALL OF FAME</a> <a href=/experience>EXPERIENCE</a> </p>'
 
 @APP.route('/')
@@ -61,6 +69,12 @@ def storypart(chapter):
         title = 'PAGE NOT FOUND'
         content = 'NOTHING TO SEE HERE'
     return render_template('chapter.html', title=title, chapter=content, footlinks=StoryFootLinks[chapter])
+
+@APP.route('/story/all')
+def allstory():
+    '''Returns the chapter template'''
+    title = 'The Complete Story of the Green Lattice'
+    return render_template('chapter.html', title=title, chapter=AllStory, footlinks='')
 
 @APP.route('/wall')
 def wall():
