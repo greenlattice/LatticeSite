@@ -1,20 +1,66 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, Markup
+import os
+import yaml
+
 APP = Flask(__name__)
 
-links = '<p>LINKS: <a href=/>INDEX</a> <a href=/story>STORY</a> <a href=/wall>WALL OF FAME</a> <a href=/experience>EXPERIENCE</a> </p>a'
+def GenChapterDict():
+    ReturnDict = {}
+    for item in os.listdir('static/story/'):
+        with open('static/story/'+ item) as yamlfile:
+            datadict = yaml.load(yamlfile.read())
+            itemname = item.replace('.yml', '')
+            ReturnDict[itemname] = datadict
+    return ReturnDict
 
+def GenChapterIndex(chapterdict):
+    ReturnString = ''
+    for x in range(1,len(chapterdict)+1):
+        ReturnString += '<a href=story/' + str(x) + '>' + chapterdict[str(x)]['title'] + '</a></br>\n'
+    return Markup(ReturnString)
+
+def GenStoryFootLinks(chapterdict):
+    ReturnDict = {}
+    for item in chapterdict:
+        NewString = ''
+        itemnum = int(item)
+        beforenum = itemnum - 1
+        afternum = itemnum + 1
+        if str(beforenum) in chapterdict:
+            NewString += '<p id="left"><a href=/story/' + str(beforenum) + '>' + '< Previous </a></p>'
+        if str(afternum) in chapterdict:
+            NewString += '<p id="right"><a href=/story/' + str(afternum) + '>' + 'Next > </a></p>'
+        ReturnDict[item] = Markup(NewString)
+    return ReturnDict
+
+ChapterDict = GenChapterDict()
+ChapterIndex = GenChapterIndex(ChapterDict)
+StoryFootLinks = GenStoryFootLinks(ChapterDict)
+links = '<p>LINKS: <a href=/>INDEX</a> <a href=/story>STORY</a> <a href=/wall>WALL OF FAME</a> <a href=/experience>EXPERIENCE</a> </p>'
 
 @APP.route('/')
 def index():
-    '''Returns the guild template'''
+    '''Returns the index template'''
     title = 'THIS IS THE HOME PAGE'
     return render_template('index.html', title=title)
 
 @APP.route('/story')
 def story():
     '''Returns the story template'''
-    title = 'NOW THIS IS A STORY ALL ABOUT HOW'
-    return render_template('story.html', title=title)
+    title = 'We\'re Your Friends Now <h2>A History of the Friendships That Made The Green Lattice Great</h2>'
+    title = Markup(title)
+    return render_template('story.html', title=title, index=ChapterIndex)
+
+@APP.route('/story/<chapter>')
+def storypart(chapter):
+    '''Returns the chapter template'''
+    if chapter in ChapterDict:
+        title = ChapterDict[chapter]['title']
+        content = Markup(ChapterDict[chapter]['content'])
+    else:
+        title = 'PAGE NOT FOUND'
+        content = 'NOTHING TO SEE HERE'
+    return render_template('chapter.html', title=title, chapter=content, footlinks=StoryFootLinks[chapter])
 
 @APP.route('/wall')
 def wall():

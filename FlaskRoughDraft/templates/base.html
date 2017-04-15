@@ -1,8 +1,8 @@
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 <html>
 <div id="headspace">
+    <p><a href=/><img src="{{ url_for('static', filename='GreenLatticeTitle.png') }}"></a></br> <a href=/story>STORY</a> <a href=/wall>WALL OF FAME</a> <a href=/experience>EXPERIENCE</a> </p>
 <h1>{{ title }}</h1>
-<p>LINKS: <a href=/>INDEX</a> <a href=/story>STORY</a> <a href=/wall>WALL OF FAME</a> <a href=/experience>EXPERIENCE</a> </p>
 </div>
 {% block content %} {% endblock %}
 </html>

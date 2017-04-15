@@ -1,9 +1,14 @@
 body {
  background-image: url(/static/TileBlackSmall.png);
  background-repeat: repeat;
+ font-family: sans-serif;
 }
 
 h1 {
+    text-align: center;
+}
+
+h2 {
     text-align: center;
 }
 
@@ -11,16 +16,36 @@ p {
     text-align: center;
 }
 
+#left {
+    float: left;
+}
+
+#right {
+    float: Right;
+}
+
 #headspace {
-    width: 1000px;
+    width: 700px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #009933;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #ffffff;
+    background-color: #000000;
 }
 
 #content {
     width: 600px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #66ff66;
+    background-color: #000000;
+    color: #ffffff;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    padding-top: 0px;
+}
+
+#index {
+    text-align: center;
 }
