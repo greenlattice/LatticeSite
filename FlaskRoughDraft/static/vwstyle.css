@@ -49,3 +49,10 @@ p {
 #index {
     text-align: center;
 }
+#cornering {
+    position: absolute;
+    left: 4px;
+    bottom: 5px;
+    height: 50px;
+    width: 50px;
+}
