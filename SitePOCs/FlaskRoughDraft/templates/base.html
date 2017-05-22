@@ -1,0 +1,13 @@
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<html>
+<div id="headspace">
+    <p><a href=/><img src="{{ url_for('static', filename='GreenLatticeTitle.png') }}"></img></a></br>
+    <a href=/story><img src={{ url_for('static', filename='StoryButton.png') }}></img></a> 
+    <img src={{ url_for('static', filename='Divider.png') }}></img> 
+    <a href=/wall><img src={{ url_for('static', filename='HoFButton.png') }}></img></a> 
+    <img src={{ url_for('static', filename='Divider.png') }}></img> 
+    <a href=/experience><img src={{ url_for('static', filename='ExpButton.png') }}></img></a> </p>
+<h1>{{ title }}</h1>
+</div>
+{% block content %} {% endblock %}
+</html>
