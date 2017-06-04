@@ -61,7 +61,7 @@ def allstory(vw = ''):
 @APP.route('/wall')
 def wall(vw = ''):
     '''Returns the wall of fame template'''
-    title = 'ALL IN ALL YOU\'RE JUST ANOTHER BRICK IN THE LATTICE'
+    title = 'ALL IN ALL YOU\'RE JUST ANOTHER PIXEL IN THE LATTICE'
     if vw:
         return render_template('vwwall.html', title=title, wall=Markup(WallList))
     else:
