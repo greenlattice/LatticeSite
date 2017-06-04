@@ -63,7 +63,7 @@ def wall(vw = ''):
     '''Returns the wall of fame template'''
     title = 'ALL IN ALL YOU\'RE JUST ANOTHER BRICK IN THE LATTICE'
     if vw:
-        return render_template('vwwall.html', title=title)
+        return render_template('vwwall.html', title=title, wall=Markup(WallList))
     else:
         return render_template('wall.html', title=title, wall=Markup(WallList))
 
