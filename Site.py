@@ -17,7 +17,7 @@ links = '<p>LINKS: <a href=/>INDEX</a> <a href=/story>STORY</a> <a href=/wall>WA
 @APP.route('/robots.txt')
 @APP.route('/favicon.ico')
 def site_extra_stuff():
-    return send_from_directory(app.static_folder, request.path[1:])
+    return send_from_directory(APP.static_folder, request.path[1:])
 
 @APP.route('/<vw>')
 @APP.route('/')
