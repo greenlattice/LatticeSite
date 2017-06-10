@@ -1,9 +1,9 @@
-from flask import Flask, render_template, Markup
+from flask import Flask, render_template, Markup, send_from_directory, request
 import os
 import yaml
 import supportFuncs
 
-APP = Flask(__name__)
+APP = Flask(__name__, static_folder='static')
 
 ChapterDict = supportFuncs.GenChapterDict()
 ChapterIndex = supportFuncs.GenChapterIndex(ChapterDict, False)
@@ -13,6 +13,11 @@ VWStoryFootLinks = supportFuncs.GenStoryFootLinks(ChapterDict, True)
 AllStory = supportFuncs.GenAllStory(ChapterDict)
 WallList = supportFuncs.GenWallofFame('static/walloffame.csv')
 links = '<p>LINKS: <a href=/>INDEX</a> <a href=/story>STORY</a> <a href=/wall>WALL OF FAME</a> <a href=/experience>EXPERIENCE</a> </p>'
+
+@APP.route('/robots.txt')
+@APP.route('/favicon.ico')
+def site_extra_stuff():
+    return send_from_directory(app.static_folder, request.path[1:])
 
 @APP.route('/<vw>')
 @APP.route('/')
