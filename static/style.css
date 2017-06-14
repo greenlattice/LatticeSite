@@ -16,6 +16,11 @@ p {
     text-align: center;
 }
 
+A:link{
+    text-decoration: none;
+    color: #94e044;
+}
+
 #left {
     float: left;
 }
