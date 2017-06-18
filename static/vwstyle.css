@@ -16,8 +16,12 @@ p {
     text-align: center;
 }
 
-A:link{
+a:link {
     text-decoration: none;
+    color: #00D3DD
+}
+
+a:visited {
     color: #006399
 }
 
