@@ -12,6 +12,7 @@ VWChapterIndex = supportFuncs.GenChapterIndex(ChapterDict, True)
 VWStoryFootLinks = supportFuncs.GenStoryFootLinks(ChapterDict, True)
 AllStory = supportFuncs.GenAllStory(ChapterDict)
 WallList = supportFuncs.GenWallofFame('static/walloffame.csv')
+StoryList = supportFuncs.GenWallofFame('static/stories.csv')
 links = '<p>LINKS: <a href=/>INDEX</a> <a href=/story>STORY</a> <a href=/wall>WALL OF FAME</a> <a href=/experience>EXPERIENCE</a> </p>'
 
 @APP.route('/robots.txt')
@@ -78,9 +79,9 @@ def experience(vw = ''):
     '''Returns the individual experience template'''
     title = 'NOW THIS IS SOMEONE ELSE\'S STORY ALL ABOUT HOW'
     if vw:
-        return render_template('vwexperience.html', title=title)
+        return render_template('vwwall.html', title=title, wall=Markup(StoryList))
     else:
-        return render_template('experience.html', title=title)
+        return render_template('wall.html', title=title, wall=Markup(StoryList))
 
 if __name__ == '__main__':
     APP.run(debug=True, host='0.0.0.0', port=8080)
